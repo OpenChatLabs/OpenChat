@@ -8,6 +8,7 @@ const monorepoRoot = path.resolve(
 );
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["@openchat/core"],
   output: "export",
   // Built-in image optimization is incompatible with `output: "export"`.
   // https://nextjs.org/docs/app/api-reference/config/next-config-js/images
