@@ -13,5 +13,8 @@
     "eslint-config-next": "16.2.4",
     "turbo": "^2.5.4",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^8.0.0"
   }
 }
