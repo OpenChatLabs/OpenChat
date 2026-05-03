@@ -1,6 +1,8 @@
-import type { SMTPConfig } from "../types/config";
+import type { Input } from "../input";
 import nodemailer from "nodemailer";
-export const send = async (config: SMTPConfig, message: string) => {
+
+export const send = async (input: Input, message: string) => {
+  const { smtp: config } = input;
   const transporter = nodemailer.createTransport({
     host: config.host,
     port: config.port,
@@ -8,7 +10,7 @@ export const send = async (config: SMTPConfig, message: string) => {
     auth: {
       user: config.username,
       pass: config.password,
-    }
+    },
   });
   return await transporter.sendMail({
     from: config.username,

@@ -1,8 +1,9 @@
-import type { IMAPConfig } from "../types/config";
+import type { Input } from "../input";
 import imapFlow from "imapflow";
 import { simpleParser } from "mailparser";
 
-export const receive = async (config: IMAPConfig) => {
+export const receive = async (input: Input) => {
+  const { imap: config } = input;
   const client = new imapFlow.ImapFlow({
     host: config.host,
     port: config.port,
