@@ -1,0 +1,17 @@
+{
+  "name": "openchat",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "start": "turbo start"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.4",
+    "turbo": "^2.5.4",
+    "typescript": "^5.9.3"
+  }
+}
