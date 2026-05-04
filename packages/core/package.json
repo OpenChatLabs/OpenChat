@@ -7,6 +7,10 @@
     ".": {
       "types": "./src/index.ts",
       "default": "./src/index.ts"
+    },
+    "./message-id": {
+      "types": "./src/lib/message-id.ts",
+      "default": "./src/lib/message-id.ts"
     }
   },
   "types": "./src/index.ts",

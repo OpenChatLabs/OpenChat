@@ -4,21 +4,19 @@ import type { NextConfig } from "next";
 
 const monorepoRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
-  "../.."
+  "../..",
 );
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@openchat/core"],
-  output: "export",
-  // Built-in image optimization is incompatible with `output: "export"`.
-  // https://nextjs.org/docs/app/api-reference/config/next-config-js/images
+  // 聊天页使用 Route Handler 收发邮件；`output: "export"` 不支持 API。
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   turbopack: {
     // Absolute path required; resolves to repo root from apps/openchat
-    root: monorepoRoot
-  }
+    root: monorepoRoot,
+  },
 };
 
 export default nextConfig;

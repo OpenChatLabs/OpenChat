@@ -1,7 +1,12 @@
 import type { Input } from "../input";
 import nodemailer from "nodemailer";
 
-export const send = async (input: Input, message: string) => {
+export async function send(input: Input, id: string, content: string): Promise<void> {
+  const peer = input.peerEmail.trim();
+  if (!peer) {
+    throw new Error("OpenChat send requires peerEmail");
+  }
+
   const { smtp: config } = input;
   const transporter = nodemailer.createTransport({
     host: config.host,
@@ -12,10 +17,11 @@ export const send = async (input: Input, message: string) => {
       pass: config.password,
     },
   });
-  return await transporter.sendMail({
+
+  await transporter.sendMail({
     from: config.username,
-    to: config.username,
-    subject: "Hello",
-    text: message
+    to: peer,
+    subject: id,
+    text: content,
   });
-};
+}
